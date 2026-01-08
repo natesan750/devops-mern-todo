@@ -3,6 +3,7 @@ const { server, app } = require("../index.js");
 const mongoose = require("mongoose");
 
 describe("GET api/tasks", () => {
+
   it("it should return 200 ok", async () => {
     const res = await request(app).get("/api/tasks");
     expect(res.statusCode).toBe(200);
@@ -11,7 +12,8 @@ describe("GET api/tasks", () => {
   it("it should return object and task property ok", async () => {
     const res = await request(app).get("/api/tasks");
     expect(typeof res.body).toBe("object");
-    expect(res.body).toHaveProperty("tasks")
+    expect(res.body).toHaveProperty("tasks");
+    console.log(res.body.tasks, "Data seeded");
   });
 });
 
